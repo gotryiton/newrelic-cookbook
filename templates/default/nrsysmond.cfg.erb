@@ -1,0 +1,6 @@
+# WARNING: This file is managed via Opscode Chef. Any manual changes will be overridden on chef run.
+
+license_key=<%= @newrelic_key %>
+loglevel=<%= node[:newrelic][:sm_loglevel] %>
+logfile=<%= node[:newrelic][:sm_logfile] %>
+hostname=<%= node[:hostname] %>
