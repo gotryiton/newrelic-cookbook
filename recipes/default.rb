@@ -54,7 +54,7 @@ service "newrelic-daemon" do
   action :enable
 end
 
-bag = data_bag_item("applications", "gotryiton")
+bag = Chef::EncryptedDataBagItem.load("production", "keys")
 #creates the config file using the databag applications - newrelic_key
 template "/etc/newrelic/newrelic.cfg" do
   owner "root"
@@ -62,7 +62,7 @@ template "/etc/newrelic/newrelic.cfg" do
   mode "0644"
   source "newrelic.cfg.erb"
   notifies :restart, "service[newrelic-daemon]"
-  variables :newrelic_key => bag["newrelic_key"]
+  variables :newrelic_key => bag["newrelic"]
 end
 
 #creates the standard php newrelic ini file
@@ -71,7 +71,7 @@ template "/etc/php5/conf.d/newrelic.ini" do
   group "root"
   mode "0644"
   source "newrelic.ini.erb"
-  variables :newrelic_key => bag["newrelic_key"]
+  variables :newrelic_key => bag["newrelic"]
   # notifies :reload, "service[apache2]"
 end
 
