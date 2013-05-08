@@ -27,5 +27,4 @@ apt_repository "newrelic" do
   keyserver "hkp://subkeys.pgp.net"
   key "548C16BF"
   action :add
-  notifies :run, "execute[apt-get update]", :immediately
 end

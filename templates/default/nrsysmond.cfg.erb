@@ -3,4 +3,4 @@
 license_key=<%= @newrelic_key %>
 loglevel=<%= node[:newrelic][:sm_loglevel] %>
 logfile=<%= node[:newrelic][:sm_logfile] %>
-hostname=<%= node[:hostname] %>
+hostname=<%= node.name %>
