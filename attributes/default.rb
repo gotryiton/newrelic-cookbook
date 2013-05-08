@@ -63,3 +63,5 @@ default[:newrelic][:daemon][:proxy]          = ''
 
 default[:newrelic][:sm_loglevel]             = 'info'
 default[:newrelic][:sm_logfile]              = '/var/log/newrelic/nrsysmond.log'
+
+default[:newrelic][:server][:hostname_prefix] = nil

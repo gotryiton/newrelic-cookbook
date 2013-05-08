@@ -3,4 +3,9 @@
 license_key=<%= @newrelic_key %>
 loglevel=<%= node[:newrelic][:sm_loglevel] %>
 logfile=<%= node[:newrelic][:sm_logfile] %>
+<% if node[:newrelic][:server][:hostname_prefix] -%>
+hostname=<%= "#{node[:newrelic][:server][:hostname_prefix]}-#{node.name}" %>
+<% else -%>
 hostname=<%= node.name %>
+<% end -%>
+
